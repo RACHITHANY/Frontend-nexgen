@@ -3,14 +3,14 @@ pipeline {
 
     environment {
         AWS_DEFAULT_REGION = 'us-east-1'
-        S3_BUCKET = 'demo-jenkins-01'
+        S3_BUCKET = 'demo-wi6'
     }
 
     stages {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/prabhajayaraj/frontend',
+                    url: 'https://github.com/RACHITHANY/Frontend-nexgen',
                     credentialsId: 'aws-credentials'
             }
         }
@@ -26,7 +26,7 @@ pipeline {
             steps {
                 withAWS(credentials: 'aws-credentials', region: 'us-east-1') {
                     sh 'aws s3 sync build/ s3://$S3_BUCKET --delete'
-                    sh 'aws cloudfront create-invalidation --distribution-id E3UN9M7VLU8QAJ --paths "/*"'
+                    sh 'aws cloudfront create-invalidation --distribution-id E28RXHFARVF6HO --paths "/*"'
                 }
             }
         }
