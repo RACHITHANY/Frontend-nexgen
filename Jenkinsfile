@@ -11,7 +11,7 @@ pipeline {
             steps {
                 git branch: 'main',
                     url: 'https://github.com/RACHITHANY/Frontend-nexgen',
-                    credentialsId: 'aws-credentials'
+                    credentialsId: 'Aws-credentials'
             }
         }
 
